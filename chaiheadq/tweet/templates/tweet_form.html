@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}
+Tweet
+{% endblock %}
+{% block content %}
+<h3 class="text-center mt-4">
+  TWEET-
+  <small class="texst-body-secondary">Form</small>
+</h3>
+
+<h2> 
+    {% if form.instance.pk %}
+      Edit Tweet 
+    {% else %}
+      Create tweet
+    {%endif  %}   
+    
+<form method="post" enctype="multipart/form-data" class="form">
+  {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-primary " tabindex="-1" role="button" aria-disabled="true" type="submit">Submit</button>
+<a href="{% url 'tweet_list'%}" class="btn btn-primary " tabindex="-1" role="button" aria-disabled="true">Back to Tweet</a>
+
+</form>
+</h2>
+{% endblock %}

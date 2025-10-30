@@ -1,0 +1,50 @@
+python -m venv .venv      
+.venv/Scripts/activate.bat  // to activate the vertual environment
+pip install Django
+django-admin startproject chaiheadq
+ cd chaiheadq
+python manage.py runserver // to run server
+ python manage.py migrate 
+ python manage.py makemigrations  // every time when you change model
+python manage.py createsuperuser 
+python manage.py startapp tweet
+
+{{
+    In Setting.py:
+import os    
+MEDIA_URL= '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_URL = "static/"
+STATICFILES_DIRS= [os.path.join(BASE_DIR, 'static')]
+
+}}
+{{
+    In url.py:
+from django.conf import settings
+from django.conf.urls.static import static
+urlpatterns = [
+    path("admin/", admin.site.urls),
+]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+        
+
+}}
+
+
+
+
+python -m ensurepip
+python -m pip install django-tailwind
+uv pip install cookiecutter
+uv pip show cookiecutter
+python manage.py tailwind init
+SuperAdmin id= kaif
+password=123kaifali
+after this paste 
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+in your setting.py
+
+then run
+
+python manage.py tailwind install
